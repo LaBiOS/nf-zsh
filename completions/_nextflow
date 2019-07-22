@@ -5,18 +5,18 @@ _nextflow() {
 	if ((CURRENT == 2)); then
 		_describe 'subcommand' '(
 			clean\:\ Clean\ up\ project\ cache\ and\ work\ directories.
-      clone\:\ Clone\ a\ project\ into\ a\ folder.
-      cloud\:\ Manage\ Nextflow\ clusters\ in\ the\ cloud.
-      drop\:\ Delete\ the\ local\ copy\ of\ a\ project\
-      help\:\ Print\ the\ usage\ help\ for\ a\ command.
-      info\:\ Print\ project\ and\ system\ runtime\ information.
-      kuberun\:\ Execute\ a\ workflow\ in\ a\ Kubernetes\ cluster\ \(\experimental\).
-      list\:\ List\ all\ downloaded\ projects.
-      log\:\ Print\ executions\ log\ and\ runtime\ info.
-      pull\:\ Download\ or\ update\ a\ project.
-      run\:\ Execute\ a\ pipeline\ project.
-      self-update\:\ Update\ nextflow\ runtime\ to\ the\ latest\ available\ version.
-      view\:\ View\ project\ script\ file(s).
+      			clone\:\ Clone\ a\ project\ into\ a\ folder.
+      			cloud\:\ Manage\ Nextflow\ clusters\ in\ the\ cloud.
+      			drop\:\ Delete\ the\ local\ copy\ of\ a\ project\
+      			help\:\ Print\ the\ usage\ help\ for\ a\ command.
+      			info\:\ Print\ project\ and\ system\ runtime\ information.
+      			kuberun\:\ Execute\ a\ workflow\ in\ a\ Kubernetes\ cluster\ \(\experimental\).
+      			list\:\ List\ all\ downloaded\ projects.
+      			log\:\ Print\ executions\ log\ and\ runtime\ info.
+      			pull\:\ Download\ or\ update\ a\ project.
+      			run\:\ Execute\ a\ pipeline\ project.
+      			self-update\:\ Update\ nextflow\ runtime\ to\ the\ latest\ available\ version.
+      			view\:\ View\ project\ script\ file(s).
 		)' && ret=0
 	else
 		# delegate to sub commands
