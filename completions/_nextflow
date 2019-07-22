@@ -1,1 +1,48 @@
+#compdef nextflow
 
+_nextflow() {
+	integer ret=1
+	if ((CURRENT == 2)); then
+		_describe 'subcommand' '(
+			clean\:\ Clean\ up\ project\ cache\ and\ work\ directories.
+      clone\:\ Clone\ a\ project\ into\ a\ folder.
+      cloud\:\ Manage\ Nextflow\ clusters\ in\ the\ cloud.
+      drop\:\ Delete\ the\ local\ copy\ of\ a\ project\
+      help\:\ Print\ the\ usage\ help\ for\ a\ command.
+      info\:\ Print\ project\ and\ system\ runtime\ information.
+      kuberun\:\ Execute\ a\ workflow\ in\ a\ Kubernetes\ cluster\ \(\experimental\).
+      list\:\ List\ all\ downloaded\ projects.
+      log\:\ Print\ executions\ log\ and\ runtime\ info.
+      pull\:\ Download\ or\ update\ a\ project.
+      run\:\ Execute\ a\ pipeline\ project.
+      self-update\:\ Update\ nextflow\ runtime\ to\ the\ latest\ available\ version.
+      view\:\ View\ project\ script\ file(s).
+		)' && ret=0
+	else
+		# delegate to sub commands
+		local subcmd=_nextflow-$words[2]
+		if ! _call_function ret $subcmd ; then
+			_message "unknown sub-command: $words[2]"
+		fi
+	fi
+	return ret
+}
+
+_nextflow-clean() {
+	local ret=1
+	local -a args
+	args+=(
+		'-after[Clean up runs executed after the specified one.]'
+		'-before[Clean up runs executed before the specified one.]'
+		'-but[Clean up all runs except the specified one.]'
+		'-dry-run[Print names of file to be removed without deleting them.
+               Default: false]'
+    '-force[Force clean command. Default: false]'
+    '-help[Print the command usage. Default: false]'
+    '-keep-logs[Removes only temporary files but retains execution
+               log entries and metadata. Default: false]'
+    '-quiet[Do not print names of files removed.]'
+	)
+	_arguments -w -s -S $args[@] && ret=0
+	return ret
+}
