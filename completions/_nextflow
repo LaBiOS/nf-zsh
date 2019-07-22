@@ -36,12 +36,12 @@ _nextflow-clean() {
 		'-before[Clean up runs executed before the specified one.]'
 		'-but[Clean up all runs except the specified one.]'
 		'-dry-run[Print names of file to be removed without deleting them.
-               Default: false]'
-    '-force[Force clean command. Default: false]'
-    '-help[Print the command usage. Default: false]'
-    '-keep-logs[Removes only temporary files but retains execution
-               log entries and metadata. Default: false]'
-    '-quiet[Do not print names of files removed.]'
+               		Default: false]'
+    		'-force[Force clean command. Default: false]'
+    		'-help[Print the command usage. Default: false]'
+    		'-keep-logs[Removes only temporary files but retains execution
+               		log entries and metadata. Default: false]'
+    		'-quiet[Do not print names of files removed.]'
 	)
 	_arguments -w -s -S $args[@] && ret=0
 	return ret
